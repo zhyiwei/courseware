@@ -5,9 +5,11 @@ the files are linked to each other.
 
 ./build_opts/ 
 Few files which set some variables used when building gem5. There is a file each for each ISA and each memory model
+一些文件设置build gem所用到的变量，有一个文件对应各自的ISA和存储模型（？）
 
 ./configs/boot/ 
 RCS scripts mainly used for running benchmarks in FS mode. It covers all the SPEC benchmarks
+RCS脚本主要用于在FS模式下运行benchmark。它包括了所有的SPEC benchmark
 
 ./configs/common/
 
@@ -15,25 +17,34 @@ Benchmarks.py
 Configuration script used for running benchmarks in FS mode. It will set the SysConfiguration. 
 SysConfig Class which contains scriptname, diskname and memsize. The disk containing benchmarks 
 can be specified in this file for each ISA.
+配置脚本，用于在FS mode下运行测试程序。它将会设置SysConfiguration。
+SysConfig类包含了脚本名称，磁盘名称以及存储大小。每一个ISA的磁盘所包含的benchmark都可以在该文件中指定
 
 Benchmarks are defined as a key in a dict which is a list of SysConfigs 
 The first defined machine is the test system, the others are driving systems
+benchmark被定义为dict中的一个key，其中dict是SysConfig的列表
+第一个被定义的机器为测试系统，其他的为驱动系统
 
 Different SysConfigs are defined for different benchmarks - by setting the script, memsize 
 The scripts are located in ./configs/boot
+不同的Sysconfig为不同的benchmark定义——通过设置脚本，存储大小
+这些脚本被定位在./configs/boot
 
 CacheConfig.py
 
 Configures the cache system for the system being simulated. Based on the command line 
 options given when gem5.opt is run, it creates the cache configuration to be used
+配置所模拟系统中的cache系统。基于gem5.opt运行时所给出的命令行选项，它创建了要用到的cache配置
 
 Caches.py
 
 Defines default parameters of L1, L2, IO, PageTableWalker Cache
+定义了的L1，L2，IO，PageTableWalker Cache的默认参数
 
 CPUConfig.py
 
 Builds the list of available CPU models and checks whether the option given on command line is an available CPU
+
 
 FSConfig.py
 
