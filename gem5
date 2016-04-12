@@ -94,14 +94,15 @@ Configuration file for running SPEC2000 benchmarks
 fs.py
 
 Script to run FS simulation. Takes command line options and retrieves required information. Imports files from ./config/common
-用于运行FS模拟的脚本。获取命令行选项以及检索需要的信息，从./config/common的文件中输入
+用于运行FS模拟的脚本。获取命令行选项以及检索需要的信息，写入./config/common中的文件
 
 Similar files for testing memory system, running in SE mode. All of these import the files present in ./config/common
-
+同样的文件用于测试存储系统，运行于SE模式，所有这些写入./config/common中存在的文件
 
 ./config/ruby
 
 Scripts related to ruby memory system
+用于关联ruby存储系统的脚本
 
 ./config/splash2
 
@@ -112,6 +113,11 @@ Defines a class for each splash2 benchmark which inherits from LiveProcess class
 Each class contains info about executable, cmd, input variables 
 Defines cache structure, number and type of clusters and number of cpus in a cluster - all obtained from command-line options 
 Creates a system, adds system-wide objects, connects them. Picks the correct benchmark, assigns the workload ans runs the simulation
+与运行splash2并行基准测试相关的配置
+为每一个splash2基准测试定义了一个类，其继承了LiveProcess类
+每一个类包含了有关可执行的，cmd，输入变量
+定义了cache架构，数量和簇的种类以及簇中cpu的数目——所有这些均从命令行选项获得
+创建了一个系统，添加全系统目标，连接他们，挑选正确的基准，分配工作量并且运行模拟
 
 run.py
 
