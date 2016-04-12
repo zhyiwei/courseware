@@ -44,45 +44,60 @@ Defines default parameters of L1, L2, IO, PageTableWalker Cache
 CPUConfig.py
 
 Builds the list of available CPU models and checks whether the option given on command line is an available CPU
-
+建立了可用的CPU模型的列表，以及检查命令行所给的选项对CPU是否可用
 
 FSConfig.py
 
 Creates the different CPU models( MIPS, ALPHA, SPARC, etc.) for Full System simulation 
 Address Ports, Memory Busses etc.
+为全系统模拟创建不同的CPU模型（MIPS, ALPHA, SPARC等）
+地址端口，存储总线等
 
 O3ARMv7a.py
 
 Defines the configuration parameters of ARMv7 CPU model. Various Functional Units, Branch Predictors, LSQs, caches, TLBs, etc. 
 All classes derive from generic clasess used in basic O3 model
+定义了ARMv7 CPU模式的配置参数。各种各样的功能单元，分支预测器，LSQ，cache，TLB等
+所有分类起源于基础O3模型中所用的一般分类
 
 Options.py
 
 Defines all the command line options like –cpu-type, –cpu-number etc. 
 system options, run duration options, checkpointing options, Fastforwarding and simpoint related materials, Benchmark options, 
 FS options
+定义了所有的命令行选项比如-cpu-type,–cpu-number等
+系统选项，运行持续时间选项，检查点选项，快速转发以及simpoint related materials（？？？），基准测试选项
+FS选项
+
 
 Simulation.py
 
 CPU models for restoring from checkpoint, initial fast-forwarding 
 Defines functions to set the simulation configuration like max time, fast-forward or detailed, creating checkpoints, restoring from checkpoints, 
 Switching CPUs, Actual Run after setting all these options, different types of switching are possible
+CPU模型以用于从检查点回复，初始快速转发
+定义了功能——用于设置模拟配置比如最大时间，快进或者细节，创建检查点，从检查点恢复
+在设置了所有这些选项后切换CPU并实际运行，不同类型的切换时可能的（？）
 
 SysPaths.py
 
 Configures the paths for disks file, script file etc.
+配置磁盘文件和脚本文件的路径
 
 cpu2000.py
 
 Configuration file for running SPEC2000 benchmarks
+配置运行SPEC2000基准测试的文件
 
 ./config/examples
 
 fs.py
 
 Script to run FS simulation. Takes command line options and retrieves required information. Imports files from ./config/common
+用于运行FS模拟的脚本。获取命令行选项以及检索需要的信息，从./config/common的文件中输入
 
 Similar files for testing memory system, running in SE mode. All of these import the files present in ./config/common
+
 
 ./config/ruby
 
