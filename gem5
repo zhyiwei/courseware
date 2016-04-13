@@ -122,17 +122,21 @@ Creates a system, adds system-wide objects, connects them. Picks the correct ben
 run.py
 
 Same as cluster.py with minor changes - clusters are not present
+与cluster.py基本类似，只有一些小的改变——簇没有出现
 
 ./config/topologies
 
 Topologies for memory controllers
+存储控制器的拓扑结构
 
 ./system
 
 Low level software like firmware or bootloaders for use in simulated systems.
+低层次软件，比如模拟系统中用到的固件或者引导装载程序
 
 alpha - Alpha console and palcode. 
 arm - A simple ARM bootloader.
+
 
 BASE
 
@@ -140,30 +144,40 @@ BASE
 
 types.hh
 
-Defines global host-dependent types: 
+Defines global host-dependent types:
+定义了全局依赖主机的类型：
 Counter, Tick, and (indirectly) {int,uint}{8,16,32,64}_t. 
 Cycles class, Addr, MicroPC, MicroPC operations,
+
+
 
 flags.hh
 
 Defines flag class, functions for modifying flags like set, unset etc.
+定义了flag类，修改标志的功能比如set，unset等
 
 output.hh
 
 Handles printing of data to an output stream
+操作数据打印到一个输出流中
 
 ./src/base/stats/
 
 types.hh
 
 Namespace Stats- Defines some basic stats types like Counter, VCounter, Result
+Namespace Stats——定义了一些基础的stat类型比如Counter, VCounter, Result
 
 info.hh
 
 Info class to store information about various types of Stat like name, desc. 
 For Distributions, 2d-Vectors etc. we store min_val, max_val etc.
+Info类用于存储有关各类stat比如name，desc的信息
+对于Distributions, 2d-Vectors等，我们存储min_val，max_val等
+
 
 output.hh, text.hh, text.cc Printing of stats to output stream
+将stat打印到输出流中
 
 ./src/base/vnc/
 
@@ -171,28 +185,36 @@ Vnc.py
 
 VncInput class which derives from SimObject class 
 VncServer class which derives from VncInput
+VncInput类源自于SimObject类
+VncServer类源自于VncInput类
 
 Some files related to handling input to vncserver and setting up 
 a vncserver
+一些文件关联到输入进vncserver的操作以及设置一个vncserver
+
 
 ./src/base/loader/
 
 object_file.hh
 
 Class Object File - Architecture, OS. Mainly deals with how to read data from an object file
+类对象文件——体系结构，操作系统，主要处理如何从一个对象文件中读取数据
 
 All files in this folder provide some classes which can be used to read various types of object files
+这个文件夹中的所有文件提供了一些类，这些类可用于读取各种类型的对象文件
 
 refcnt.hh
 
 RefCounted and RefCountingPtr classes which enable a class to be reference counted and provide automatic 
 reference counting respectively.
+RefCounted和RefCountingPtr类，其使一个类可被引用计数并且提供自动的分别引用计算
 
 ARCH
 
 ./src/arch/generic/
 
 Generic classes which can be used to perform specific functions using any ISA like decode_cache, debug_fualts, memhelpers.hh
+一般的类，可用于使用任何ISA执行特定的功能，比如decode_cache, debug_fualts, memhelpers.hh
 
 ./src/arch/arm/
 
