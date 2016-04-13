@@ -395,19 +395,24 @@ LiveProcess类源自于Process
 
 PseudoInst namespace which defines several functions which behave like instructions and 
 perform several operations on a ThreadContext
+PseudoInst命名空间，定义了几个函数，这些函数行为类似指令并且在线程上下文执行一些操作
 
 ./root.hh 
 The root SimObject in the simulation hierarchy
+在仿真层级中的root SimObject
 
 serialize.hh
 
 Functions to create and restore from checkpoints 
 Serialize - create checkpoints Unserialize - Restore from checkpoints
+函数用来创建和从检查点处恢复
+？？？
 
 ./sim_events.hh 
 Event to terminate simulation at a particular cycle/instruction 
 CountedDrainEvent, CountedExitEvent 
 Used to terminate simulation after some special event
+
 
 ./sim_exit.hh 
 Functions which return the control to python after ending simulation
