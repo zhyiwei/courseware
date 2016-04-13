@@ -57,7 +57,7 @@ O3ARMv7a.py
 
 Defines the configuration parameters of ARMv7 CPU model. Various Functional Units, Branch Predictors, LSQs, caches, TLBs, etc. 
 All classes derive from generic clasess used in basic O3 model
-定义了ARMv7 CPU模式的配置参数。各种各样的功能单元，分支预测器，LSQ，cache，TLB等
+定义了ARMv7 CPU模式的配置参数。各种各样的函数单元，分支预测器，LSQ，cache，TLB等
 所有分类起源于基础O3模型中所用的一般分类
 
 Options.py
@@ -76,7 +76,7 @@ CPU models for restoring from checkpoint, initial fast-forwarding
 Defines functions to set the simulation configuration like max time, fast-forward or detailed, creating checkpoints, restoring from checkpoints, 
 Switching CPUs, Actual Run after setting all these options, different types of switching are possible
 CPU模型以用于从检查点回复，初始快速转发
-定义了功能——用于设置模拟配置比如最大时间，快进或者细节，创建检查点，从检查点恢复
+定义了函数——用于设置模拟配置比如最大时间，快进或者细节，创建检查点，从检查点恢复
 在设置了所有这些选项后切换CPU并实际运行，不同类型的切换时可能的（？）
 
 SysPaths.py
@@ -154,7 +154,7 @@ Cycles class, Addr, MicroPC, MicroPC operations,
 flags.hh
 
 Defines flag class, functions for modifying flags like set, unset etc.
-定义了flag类，修改标志的功能比如set，unset等
+定义了flag类，修改标志的函数比如set，unset等
 
 output.hh
 
@@ -221,72 +221,98 @@ Generic classes which can be used to perform specific functions using any ISA li
 ./insts
 
 Classes which define what each instruction will do and to access information about instructions like branch, mem, misc, mult, etc.
+类用于定义每一个指令或做的事情并且获取指令信息比如branch, mem, misc, mult等
 
 ./isa
 
 ./decoder
 
 .isa files which define how to decode an arm.thumb instruction
+.isa文件定义了如何解码arm.thumb的指令
 
 ./formats
 
 .isa files which define various instruction formats like m5ops, branch, mem, etc.
+.isa文件定义了各种指令格式比如m5ops，branch, mem,等
 
 ./insts
 
 Declarations of execution methods used for different types
+声明了用于不同类型的执行方式
 
 PYTHON FOLDER
 
 ./m5/util/convert - Functions to convert a given string to numerical values related to memory size, clock period, network bandwidth etc.
+./m5/util/convert——这些函数用于将一个给定的字符串转换为数值变量，这些变量与存储大小,时钟周期，网络带宽等有关
 
 ./m5/util/attrdict - Modified Dict types with capability to add and delete attributes and a heirarchical structure
+./m5/util/attrdict——通过使用添加或者删除属性和层次结构的能力来修改字典类型
 
 ./m5/util/multidict - Dict of Dict and so on
+./m5/util/multidict——字典的字典
 
 ./m5/util/orderdict - Ordered Dict
+./m5/util/orderdict——有序的字典
 
 ./m5/util/smartdict - Dictionary class that holds strings, but intelligently converts those strings to other types depending on their usage
+./m5/util/smartdict——字典类型用于保存字符串
 
 ./m5/util/sortedict -
 
 ./m5/util/region - Places data in regions and determines the type of overlap between two regions
+./m5/util/region——将数据放置到区域中并且确定两个区域之间重叠的类型
 
 ./m5/util/init - Defines the error calls - panic, fatal, warn and inform. Several other utility functions
+./m5/util/init——定义了错误调用——panic, fatal, warn and inform。其他的几个实用函数
 
 ./m5/internal/params.py - A simple function to load all modules starting with m5.internal.params
+./m5/internal/params.py——一个简单的函数用于载入所有模块，从m5.internal.params开始
 
 ./m5/internal/init - Imports some modules used in the simulator like core, event, stats, etc.
+./m5/internal/init——输入模拟器用到的一些模块，比如core, event, stats等
 
 ./m5/objects/init - Imports all modules starting with m5.objects
+./m5/objects/init - 输入所有的模块，从m5.objects开始
 
 ./m5/config.py - Directory settings for m5
+./m5/config.py——为m5设置目录
 
 ./m5/debug.py - Extracting debug flags from m5 and printing them
+./m5/debug.py——从m5中提取debug的标志并且打印它们
 
 ./m5/event.py - Defines Event and Progress Event classes and related functions
+/m5/event.py——定义了时间和进程时间类以及相关的函数
 
 ./m5/main.py - The main script invoked when gem5 is run. Option parsing, gem5 interactive console , main function which prints info while gem5 is running
+./m5/main.py——当gem5运行时调用的main脚本。选项解析，gem5交互控制台，主函数在gem5运行时打印信息
 
 ./m5/options.py Option parser
+./m5/options.py——选项解析器
 
 ./m5/params.py - Parameter description classes. Each class has a _params dictionary which maps parameter names to Param objects. Functions which generate C++ code 
 needed as a pre-requisite for declaring certain C++ objects. Defines several functions which deal with parameters
+./m5/params.py——参数描述类。每一个类有一个_params字典，其将变量名映射到Param对象。生成C++源码的函数需要声明特定的C++对象作为必要条件
 
 ./m5/proxy.py - Proxy object support
+./m5/proxy.py——代理对象支持
 
 ./m5/ticks.py - Setting simulation accuracy and global frequency
+./m5/ticks.py——设置仿真精度和全局频率
 
 ./m5/SimObject.py -
 
 ./m5/simulate.py - Functions to instantiate Simobjects used in the system, create checkpoints, restore from checkpoints, switch cpus etc. 
 In short, this script is responsible for starting and ending a simulation
+./m5/simulate.py——函数，用于实例化系统中所用的Simobjects，创建检查点，从检查点恢复，切换cpu等
+简单来说，这个脚本为仿真的开始和结束负责
 
 ./m5/stats/init - Initialization, resetting, dumping, et. of statistics
+./m5/stats/init——初始化，重置，dumping，以及统计
 
 ./swig
 
 Swig files for the main module defined in m5
+？？？
 
 SIMULATION FOLDER
 
@@ -294,57 +320,76 @@ SIMULATION FOLDER
 
 ./arguments.hh 
 Class arguments which has a thread context, number, data and methods which change or compare number field
+参数类，拥有一个线程上下文，数据以及用于改变或者比较数域的方法
 
 ./async.hh 
 Defines flags used to handle asynchronous simulator events
+定义用于操作异步模拟器事件的标志
 
 ./byteswap.hh 
 Provides endianness coversion utility functions
+提供字节顺序的转换使用函数
 
 ./clocked_object.hh 
 The ClockedObject class extends the SimObject with a clock and accessor functions to relate ticks to the cycles of the object.
+ClockedObject类通过时钟和与对象时钟的tick相关的访问器函数扩展了SimObject
 
 ./core.hh 
 Core simulator functionality such as time information, output directory and exit events. Few simple functions
+核仿真器功能比如事件信息，输出目录以及退出事件，一些简单的功能
 
 ./eventq.hh 
 Class Event derives from Serializable and is a friend of class EventQueue. EventQueueManager
+事件类源于Serializable，并且是EventQueue类的助手
 
 ./serialize.hh 
 Serialization interface declarations
+串行化接口声明
 
 ./debug.hh 
 Provides the definitions for some useful debugging functions. These are intended to be called from a debugger such as gdb
+提供了一些有用的调试函数的定义。它们将会被gdb一类的调试器所调用
 
 ./drain.hh 
 Coordinates draining of a system. Drainable class. Functions to perform draining
+？？？
 
 ./faults.hh 
 Various types of faults, their names and invoking functions.
+各种类型的故障，它们的名称和调用的函数
 
 ./init.hh 
 EmbeddedPython, EmbeddedSwig structs. Some initialization function and handler functions
+嵌入式Python，嵌入式Swig的结构。一些初始化函数和操作函数
 
 ./insttracer.hh 
 Class InstRecord. Class InstTracer which mostly derives from SimObject
+InstRecord类，InstTracer类基本源自于SimObject
 
 ./microcoderom.hh 
 Generic stub microcode ROM ISAs can use if they don’t need anything more
+一般的存根魏玛ROM ISA可以被使用——如果它们不需要其他任何东西（？？？）
 
 ./main.cc
 
 Sets up python and then calls initM5Python which loads the various embedded python modules 
 into the python environment and then starts things running by calling m5Main.
+建立Python，并且接着调用initM5Python，用于将各种嵌入式Python模块装载到Python环境
+之后通过调用m5Main开始运行
 
 ./syscallreturn.hh
 
 Class SyscallReturn. Successful and retval fields
+SyscallReturn类，成功和返回值域
 
 ./process.hh
 
 All the details that are related to a process running on a cpu 
 class Process deriving from SimObject 
 class LiveProcess deriving from Process
+所有细节都与cpu上运行的进程相关
+Process类源自于SimObjectProcess
+LiveProcess类源自于Process
 
 ./pseudo_inst.hh
 
