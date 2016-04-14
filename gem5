@@ -739,60 +739,80 @@ FUPool类维护了特殊功能的FUunits的数组的列表
 impl.hh 
 Implementation specific struct that defines several key types to the 
 CPU, the stages within the CPU, the time buffers, and the DynInst.
+实现特定的结构体，定义了CPU中几种key的类型，CPU中的阶段，时间缓冲区，以及DynInst
 
 inst_queue.hh 
 Instruction Queue which holds and schedules intructions 
 Gets information from FUs and MemUnit to track dependencies and 
 resource availability
+指令队列，保存并调度指令
+从FU和MemUnit中获取信息以追踪相关性和资源可用性
 
 lsq_unit.hh 
 LSQUnit Class which implements Load and Store Queues
+LSQUnit类，载入和存储队列
 
 lsq.hh 
 LSQ class Templated with Impl
 
 mem_dep_unit.hh 
 Memory Dependency Predictor
+存储依赖预测器
 
 regfile.hh 
 Simple physical register file class. 
 Methods to set and read int and fp registers
+简单的物理寄存器文件类
+设置和读取int以及fp寄存器的方法
 
 scoreboard.hh 
 Implements a simple scoreboard to track which registers are ready
+实现一个简单的记分牌，以追踪哪个寄存器准备完毕
 
 rob.hh 
 ROB class. The ROB is largely what drives squashing.
+ROB类，ROB是驱动压缩的主要部分
 
 rename.hh 
 DefaultRename Class which handles both single threaded and SMT rename
+DefaultRename类，操作单个线程化和SMT重命名
 
 thread_context.hh 
 Derived ThreadContext for use with O3CPU
+衍生的ThreadContext，和O3CPU一起使用
 
 thread_state.hh 
 O3ThreadState class that has various thread state, such as the status, the 
 current instruction being processed, whether or not the thread has 
 a trap pending or is being externally updated, the ThreadContext 
 pointer, etc.
+O3ThreadState类有各种线程情形，比如状态（status和state区别？），当前正在处理的指令，线程是否有自陷悬挂或者已经外部更新，ThreadContext指针，等等
 
 store_set.hh 
 Implements a store set predictor for determining if memory insts 
 are dependent on each other
+？？？？
 
 deriv.hh 
 DeriveO3CPU derived from templated FullO3CPU
+DeriveO3CPU源自于模板化FullO3CPU
 
 iew.hh 
 DefaultIEW class which implements the iew stage of the pipeline
+DefaultIEW类，实现了流水线的iew阶段
 
 cpu_policy.hh 
 SimpleCPUPolicy Struct that defines the key classes to be used by the CPU. 
 All classes use the typedefs defined here to determine what are the 
 classes of the other stages and communication buffers.
+SimpleCPUPolicy结构体定义了CPU所用到的关键类
+所有类使用typedefs定义，以确定其他阶段和通信缓冲区的类是什么
 
 cpu.hh 
 BaseO3CPU deriving from BaseCPU 
 FullO3CPU deriving from BaseO3CPU 
 FullO3CPU class has each of the stages (fetch through commit) 
 within it, as well as all of the time buffers between stages.
+BaseO3CPU来自于BaseCPU
+FullO3CPU来自于BaseO3CPU
+FullO3CPU类拥有每一个阶段，以及所有阶段之间的时间缓冲区
