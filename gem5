@@ -436,7 +436,7 @@ simulate method which returns SimLoopExitEvent
 
 ./stat_control.hh 
 Events related to dumping, resetting and registering statistics
-跟转储，重置和注册统计相关的事件
+跟转储，重置和寄存统计相关的事件
 
 ./syscall_emul.hh
 
@@ -494,14 +494,17 @@ Cache of recent Virtual Memory decodings and retrieval mechanisms from cache
 exec_context.hh
 
 ExecContext - Not a usable class. Only to demonstrate how ISA accesses CPU state
+ExecContext——不是个可用的类，只被用来论证ISA如何存取CPU状态
 
 fudesc.hh
 
 FuDesc and OpDesc classes which define a functional unit and its operations.
+FuDesc和OpDesc类，定义功能单位以及它的运作
 
 inst_seq.hh
 
 Used to order instructions in the ready list
+用来处理处于就绪列表中的指令
 
 static_inst.hh
 
@@ -511,25 +514,32 @@ thread_context.hh
 
 ThreadContext Class Accessor and Modifier functions for all registers, memory ports and most of the 
 architectural state of a CPU. It is a virtual class. 
-So, we make use of ProxyThreadContext class to prevent the overhead of virtual callprevent the overhead of virtual calls
+So, we make use of ProxyThreadContext class to prevent the overhead of virtual calls
+ThreadContext类访问器和调节器函数，适用于所有的寄存器，存储器口和CPU的大多数体系结构状态，这是个虚拟类
+所以我们利用ProxyThreadContext类来防止虚拟调用的开销
 
 profile.hh
 
 ProfileNode and FunctionProfile classes
+ProfileNode和FunctionProfile类
 
 thread_state.hh
 
 Struct for holding general thread state that is needed across CPU models. 
 Very similar to thread_context with minor changes
+结构体，用来存储一般的线程状态——需要在CPU模型中用到
+跟thread_context非常相似，只有很小的改动
 
 smt.hh
 
 Changing the thread state and priority for smt support
+为smt支持改变线程的状态和优先级
 
 translation.hh
 
 Captures the state of an address translation 
 WholeTranslationState and DataTranslation Classes
+捕获地址转换的状态
 
 exectrace.hh 
 ExeTraceRecord and ExeTracer classes
@@ -537,28 +547,37 @@ ExeTraceRecord and ExeTracer classes
 simple_thread.hh 
 The SimpleThread object provides a combination of the ThreadState 
 object and the ThreadContext interface
+SimpleThread对象提供了一个ThreadState对象和ThreadContext界面的组合
 
 quiesce_event.hh 
 EndQuiesceEvent for timing out a quiesce instruction
+EndQuiesceEvent用来令一个停顿指令超时
 
 intr_control.hh 
 Class to clear and post instructions of a particular CPU
+这个类用来清除和布置特定CPU上的指令
 
 legiontrace.hh 
 LegionTraceRecord and LegionTrace
 
 pc_event.hh 
 PCEventQueue class which contains PCEvent class objects
+PCEventQueue类包含PCEvent类对象
 
 base_dyn_inst.hh 
 Defines a dynamic instruction context 
 All the functions and processes that happen in a simple processor 
 are defined in this class. Including functions for writing, reading memory, 
 starting and ending translation etc.
+定义了一个动态指令上下文
+所有函数和进程都发生在一个简单的处理器上——前述内容就是由这个类来定义
+包含了用于写，读存储，开启和结束转换等等的函数
+
 
 Python Files 
 These files define the Python Objects, methods, files which point to the 
 corresponding C++ object, using Cxx header and Cxx class variables
+这些文件定义了python对象，方法，文件——这些都指向了相应的C++对象——通过使用C++头和C++类变量
 
 CHECKER
 
@@ -571,8 +590,12 @@ verified. This CheckerThreadContext is then used by the main CPU in
 place of its usual ThreadContext class. It handles updating the 
 checker’s state any time state is updated externally through the 
 ThreadContext.
+衍生的ThreadContext类与chekcer一起使用。模板变量是由被认证的特定CPU所使用的ThreadContext类
+CheckerThreadContext之后被主CPU在其通常的ThreadContext类的位置使用（？？？）
+每当状态通过ThreadContext更新后，它就更新checker的状态
 
 CheckerThreadContext - Actual Thread Context, Checker Thread, Checker CPU
+
 
 cpu.hh 
 CheckerCPU class derives from BaseCPU class. 
@@ -580,6 +603,10 @@ BaseCPU is an abstract class. So CheckerCPU
 has most of the methods and members replicated 
 Templated Checker Class deriving from CheckerCPU 
 which handles the checking/verifying functions
+CheckerCPU类源自于BaseCPU类
+BaseCPU是一个抽象类
+所以CheckerCPU有很多方法和成员重复
+Templated Checker类源自于CheckerCPU，后者操作检查/校验函数
 
 cpu_impl.hh
 
@@ -592,16 +619,25 @@ BaseSimpleCPU derives from BaseCPU
 CheckPcEventQueue - Seems to be the main function 
 which moves instructions forward 
 Lots of stats variables
+BaseSimpleCPU源自于BaseCPU
+CheckPcEventQueue——似乎是主函数
+其将指令移动到很多stat变量前
+
 
 atomic.hh 
 AtomicSimpleCPU derives from BaseSimpleCPU 
 TickEvent Struct containing a CPU, TickEvent, Process methods 
 Main simulation loop - tick method
+AtomicSimpleCPU源自于BaseSimpleCPU
+TickEvent结构体包含了CPU，TickEvent，进程方法
+主要的仿真循环——tick方式
 
 timing.hh 
 Class SplitMainSenderState to split memory access into two fragments 
 It has some TLB and memory access functions in addition to 
 Atomic functionality
+SplitMainSenderState类将存储访问分成两个片段
+除了原子函数外，它还拥有一些TLB和存储访问函数
 
 PREDICTOR
 
@@ -610,6 +646,7 @@ PREDICTOR
 btb.hh 
 DefaultTLB class 
 Very simple and straight forward implementation of BTB
+非常简单和直接地实现BTB
 
 ras.hh 
 ReturnAddrStack class
@@ -618,19 +655,25 @@ sat_counter.hh
 Private counter class for the internal saturating counters. 
 Implements an n bit saturating counter and provides methods to 
 increment, decrement, and read it
+私有计数器类，用于内部饱和计数器
+实现n比特的内部计数器，并且提供增加和衰减以及读取它的方式
 
 bpred_unit.hh 
 Wrapper class to hold both the Branch Predictor and BTB 
 Predictor Histroy Struct to maintain information required to 
 update BTB, RAS etc.
+Wrapper类用于保存分支预测器和BTB预测器历史结构体，以维护BTB，RAS等更新时所需要的信息
 
 tournament.hh 
 Implements a tournament branch predictor 
 TournamentBP inherits from BPredUnit
+实现了一个比赛分支预测器
+TournamentBP继承自BPredUnit
 
 2bit_local.hh 
 Implements a local predictor that uses the PC to index into a table of 
 counters. Contains a list of saturating counters.
+实现了一个局部预测器
 
 OUT OF ORDER
 
@@ -639,9 +682,11 @@ OUT OF ORDER
 base_dyn_inst.cc 
 Makes an explicit instantiation of BaseDynInst templated class with 
 O3CPUImpl
+利用O3CPUImpl来生成BaseDynInst templated类的具现化
 
 checker.hh 
 Specific non-templated O3Checker derived class used for SimObject configuration.
+特殊的非模板化O3Checker衍生的类，为SimObject配置所用
 
 comm.hh 
 Structures that define the information passed on from one stage to another stage of 
@@ -649,23 +694,34 @@ a superscalar pipeline
 Each struct contains a list of DynInstPtr 
 Per thread variable like branchmisPredict, branchTaken etc. 
 A special structure which defines all backward communication - TimeBufStruct
+这个结构定义了超标量流水线中信息从一个阶段传到另一个阶段
+每个结构体包含了一个DynInstPtrPer thread变量（像branchmisPredict，branchTaken等）的列表
+一个特殊的结构体，其定义了所有的反向通讯——TimeBufStruct
 
 commit.hh 
 Templated DefaultCommit Class 
 Has pointers to all the important structures and stages in the CPU 
 All the important architectural updates are handled
+模板化的DefaultCommit类
+指针指向CPU中所有的重要结构体和阶段
+所有重要的体系结构更新为其所用
 
 decode.hh 
 Because instructions are actually decoded when the StaticInst is created, 
 this stage does not do much other than check any PC-relative branches 
 DefaultDecode - Very similar to DefaultCommit class
+因为当StaticInst被创建时，指令事实上已经被解码
+这个阶段所做的并不比检查任何PC相关分支多出多少
+DefaultDecode——与DefaultCommit类很像
 
 dep_graph.hh 
 Array of linked list that maintains the dependencies between 
 producing instructions and consuming instructions
+链表的数组，维持生产指令和消耗指令之间的相关性
 
 dyn_inst.hh 
 BaseO3DynInst deriving from BaseDynInst
+BaseO3DynInst源自于BaseDynInst
 
 fetch.hh 
 DefaultFetch Class
@@ -673,10 +729,12 @@ DefaultFetch Class
 free_list.hh 
 SimpleFreeList class that simply holds the list of free integer and floating 
 point registers.
+SimpleFreeList类仅仅保存空闲整型和浮点寄存器的列表
 
 fu_pool.hh 
 FUPool class which maintains a list of arrays of FUunits with a specific 
 Capability
+FUPool类维护了特殊功能的FUunits的数组的列表
 
 impl.hh 
 Implementation specific struct that defines several key types to the 
