@@ -412,37 +412,47 @@ Serialize - create checkpoints Unserialize - Restore from checkpoints
 Event to terminate simulation at a particular cycle/instruction 
 CountedDrainEvent, CountedExitEvent 
 Used to terminate simulation after some special event
-
+在一个特定周期/指令处终止仿真的事件
+CountedDrainEvent, CountedExitEvent 
+用于在一些特定事件后终止仿真
 
 ./sim_exit.hh 
 Functions which return the control to python after ending simulation
+函数，用于结束仿真后将控制返回给Python
 
 ./sim_object.hh
 
 Abstract superclass for simulation objects. Represents things that 
 correspond to physical components and can be specified via the 
 config file (CPUs, caches, etc.).
+为模拟对象将超级类抽象化（？）。其表示的东西相当于物理组件并且可以通过config文件指定（CPU，cache等）
 
 Methods used in starting and running a simulation
+该方法用于开启并且运行仿真
 
 ./simulate.hh 
 simulate method which returns SimLoopExitEvent
+返回SimLoopExitEvent的仿真方法
 
 ./stat_control.hh 
 Events related to dumping, resetting and registering statistics
+跟转储，重置和注册统计相关的事件
 
 ./syscall_emul.hh
 
 Defines objects used to emulate syscalls from the target 
 application on the host machine.
+定义了用于从主机上目标应用程序进行仿真系统调用的对象
 
 ./syscallreturn.hh
 
 SysCallReturn Class which decodes the return value of a system call
+SysCallReturn类，对系统调用的返回值进行解码
 
 ./system.hh
 
 Classes which define the system, ports, connections between system components
+这些类定义了系统，端口，系统组件之间的连接
 
 ./tlb.hh
 
@@ -456,23 +466,30 @@ timebuf.hh
 
 TimeBuffer and Wire classes. Friends of each other. Wire contains TimeBuffer 
 Used for sending data between two objects
+TimeBuffer和Wire类，互为对方的伙伴。Wire包含了TimeBuffer
+用于在两个对象之间发送数据
 
 activity.hh
 
 Activity Recorder helper class that informs the CPU if it can switch over to being idle or not
+活动记录助手类，通知CPU其是否能够切换到闲置状态
 
 base.hh
 
 CPUProgressEvent deriving from Event 
 BaseCPU deriving from MemObject
+CPUProgressEvent源自于Event
+BaseCPU源自于MemObject
 
 cpuevent.hh
 
 CpuEvent class- Helps form a global list of events which need a pointer to a ThreadContext
+CpuEvent类——有助于形成事件的全局列表，这些事件需要指针指向线程上下文
 
 decodecache.hh
 
 Cache of recent Virtual Memory decodings and retrieval mechanisms from cache
+最近虚拟内存解码的cache和从cache中恢复的机制
 
 exec_context.hh
 
